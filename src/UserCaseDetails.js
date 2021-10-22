@@ -1,16 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Button } from 'react-bootstrap';
+import { Spinner, Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
+import { url } from "./constants/global"
 import useFetch from "./useFetch";
+
 
 const UserCaseDetails = () => {
     const { caseid, userid } = useParams();
-    const { data:usercaseInfo, error, isPending } = useFetch('https://wpd-backend.herokuapp.com/api/v1/cases/' + caseid + '/' + userid);
+    const { data:usercaseInfo, error, isPending } = useFetch(`${url}cases/${caseid}/${userid}`);
 
     return ( 
         <div className="user-details">
-            <h2 className="pt-4" >User & Case Detail:  </h2>
-            { isPending && <div>Loading...</div> }
+            <h2 className="pt-4 text-center" >User & Case Detail:  </h2>
+            { isPending && (
+                <Container className=""> 
+                    <Row className="justify-content-center align-items-center">
+                        <Col xs="2" sm="1" className="">
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                        </Col>
+                    </Row>
+                </Container>
+            )}
             { error && <div> { error } </div> }
             { usercaseInfo && (
                 <article>
@@ -51,21 +63,25 @@ const UserCaseDetails = () => {
                         </div>
                     </div>
 
-                    <div>
-                        <Form>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Have the information sent to your email!</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" />
-                                <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                                </Form.Text>
-                            </Form.Group>
+                    <Container className="">
+                        <Row className="justify-content-center align-items-center">
+                            <Col xs="12" sm="12" md="6" lg="4" xl="4">
+                                <Form className="">
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Have the information sent to your email!</Form.Label>
+                                        <Form.Control type="email" placeholder="Enter email" />
+                                        <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
+                                        </Form.Text>
+                                    </Form.Group>
 
-                            <Button variant="primary" type="submit">
-                                Submit
-                            </Button>
-                        </Form>
-                    </div>
+                                    <Button variant="primary" type="submit">
+                                        Submit
+                                    </Button>
+                                </Form>
+                            </Col>
+                        </Row>
+                    </Container>
                 </article>
             )}
         </div>
