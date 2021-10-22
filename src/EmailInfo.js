@@ -3,7 +3,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 const EmailInfo = () => {
 
-    const handleClick = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Successful!")
     }
@@ -21,7 +21,7 @@ const EmailInfo = () => {
                             </Form.Text>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit" onClick={handleClick}>
+                        <Button variant="primary" type="submit" onSubmit={ e => handleSubmit }>
                             Submit
                         </Button>
                     </Form>
