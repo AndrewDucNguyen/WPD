@@ -21,7 +21,7 @@ const EmailInfo = () => {
                             </Form.Text>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit" onSubmit={ e => handleSubmit }>
+                        <Button variant="primary" type="submit" onSubmit={ handleSubmit }>
                             Submit
                         </Button>
                     </Form>
