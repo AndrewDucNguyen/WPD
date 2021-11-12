@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
 import { url } from './constants/global';
-import EmailInfo from './EmailInfo';
 import useFetch from "./useFetch";
 
 
@@ -45,7 +44,6 @@ const UserDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <EmailInfo />
                 </article>
             )}
         </div>

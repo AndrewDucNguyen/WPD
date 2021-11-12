@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
 import { url } from './constants/global';
-import EmailInfo from './EmailInfo';
 import useFetch from "./useFetch";
 
 
@@ -12,7 +11,6 @@ const CaseDetails = () => {
 
     return ( 
         <div className="case-details">
-            <h2 className="text-center pt-4">Case ID - { id }</h2>
             { isPending && (
                 <Container> 
                     <Row className="justify-content-center align-items-center">
@@ -45,7 +43,6 @@ const CaseDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <EmailInfo />
                 </article>
             )}
         </div>

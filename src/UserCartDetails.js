@@ -1,17 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
-import { url } from "./constants/global";
+import { carturl } from "./constants/global";
 import useFetch from "./useFetch";
 
 
-const UserCaseDetails = () => {
-    const { caseid, userid } = useParams();
-    const { data:usercaseInfo, error, isPending } = useFetch(`${url}cases/${caseid}/${userid}`);
+const UserCartDetails = () => {
+    const { cartid, userid } = useParams();
+    const { data:usercartInfo, error, isPending } = useFetch(`${carturl}/${cartid}/${userid}`);
 
     return ( 
         <div className="user-details">
-            <h2 className="pt-4 text-center" >User & Case Detail:  </h2>
+            <h2 className="pt-4 text-center" >User & Cart Detail:  </h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -24,28 +24,31 @@ const UserCaseDetails = () => {
                 </Container>
             )}
             { error && <div> { error } </div> }
-            { usercaseInfo && (
+            { usercartInfo && (
                 <article>
                     {/* <!-- Hero Section --> */}
                     <div className="container-fluid mx-auto my-4">
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-6 text-center">
                                 <div className="card">
-                                    <h5 className="card-header">Department: { usercaseInfo.data.user.department }</h5>
+                                    <h5 className="card-header">Department: { usercartInfo.data.user.department }</h5>
                                     <div className="card-body">
-                                        <h5 className="card-title">First: { usercaseInfo.data.user.firstName }</h5>
-                                        <h5 className="card-title">Last: { usercaseInfo.data.user.lastName }</h5>
-                                        <h5 className="card-title">Rank: { usercaseInfo.data.user.rank }</h5>
-                                        <h5 className="card-title">Email: { usercaseInfo.data.user.email }</h5>
-                                        <h5 className="card-title">Number: { usercaseInfo.data.user.phoneNumber }</h5>
-                                        <h5 className="card-title">Station Number: { usercaseInfo.data.user.stationPhoneNumber}</h5>
+                                        <h5 className="card-title">First: { usercartInfo.data.user.firstName }</h5>
+                                        <h5 className="card-title">Last: { usercartInfo.data.user.lastName }</h5>
+                                        <h5 className="card-title">Rank: { usercartInfo.data.user.rank }</h5>
+                                        <h5 className="card-title">Email: { usercartInfo.data.user.email }</h5>
+                                        <h5 className="card-title">Number: { usercartInfo.data.user.phoneNumber }</h5>
+                                        <h5 className="card-title">Station Number: { usercartInfo.data.user.stationPhoneNumber}</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {/* Case Information */}
+                    {/* {usercartInfo.map(cart) => {
 
-                    <div className="container-fluid mx-auto my-4">
+                    }} */}
+                    {/* <div className="container-fluid mx-auto my-4">
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-10">
                                 <div className="card">
@@ -61,11 +64,11 @@ const UserCaseDetails = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </article>
             )}
         </div>
      );
 }
 
-export default UserCaseDetails;
+export default UserCartDetails;

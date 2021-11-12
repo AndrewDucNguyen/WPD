@@ -1,2 +1,3 @@
 const url = 'https://wpd-backend.herokuapp.com/api/v1/'
-export { url }
+const carturl = 'https://wpd-backend.herokuapp.com/api/v1/cart'
+export { url, carturl }

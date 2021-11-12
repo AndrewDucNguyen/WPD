@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CaseDetails from './CaseDetails';
 import UserDetails from './UserDetails';
 import UserCaseDetails from './UserCaseDetails';
+import CartDetails from './CartDetails';
+import UserCartDetails from './UserCartDetails';
 import NotFound  from './NotFound';
 
 function App() {
@@ -32,6 +34,12 @@ function App() {
             </Route>
             <Route path="/view/user-case/:caseid/:userid">
               <UserCaseDetails />
+            </Route>
+            <Route path="/view/cart/:id">
+              <CartDetails />
+            </Route>
+            <Route path="/view/user-cart/:cartid/:userid">
+              <UserCartDetails />
             </Route>
             <Route path="*">
               <NotFound />
