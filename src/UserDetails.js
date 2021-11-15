@@ -33,7 +33,7 @@ const UserDetails = () => {
                                 <div className="card">
                                     <h5 className="card-header">Department: { userInfo.data.department }</h5>
                                     <div className="card-body">
-                                        <h5 className="card-title">Name: { userInfo.data.firstName + ' ' +userInfo.data.lastName}</h5>
+                                        <h5 className="card-title">Name: { userInfo.data.firstName + ' ' + userInfo.data.lastName}</h5>
                                         <h5 className="card-title">Rank: { userInfo.data.rank }</h5>
                                         <h5 className="card-title">Email: { userInfo.data.email }</h5>
                                         <h5 className="card-title">Number: { userInfo.data.phoneNumber }</h5>
