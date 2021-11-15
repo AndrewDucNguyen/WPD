@@ -55,8 +55,8 @@ const UserCartDetails = () => {
                                         <h5 className="card-title"><strong>Case Number:</strong> {cartcase.caseNumber} </h5>
                                         <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>
                                         <div id="buttonGroup" class="text-center">
-                                            <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
-                                            <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
+                                            {cartcase.url !== '' && <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>}
+                                            {cartcase.urlPDF !== '' && <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>}
                                         </div>
                                     </div>
                                 </div>

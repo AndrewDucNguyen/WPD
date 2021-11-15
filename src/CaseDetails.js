@@ -25,7 +25,7 @@ const CaseDetails = () => {
             { error && <div> { error } </div> }
             { caseInfo && (
                 <article>
-                    <h2 className="text-center">Category - { caseInfo.data.category.title }</h2>
+                    <h2 className="text-center pt-4">Category - { caseInfo.data.category.title }</h2>
                     <div className="container-fluid mx-auto my-4">
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-10">
@@ -35,8 +35,8 @@ const CaseDetails = () => {
                                         <h5 className="card-title"><strong>Case Number:</strong> {caseInfo.data.caseNumber} </h5>
                                         <p className="card-text"><strong>Description:</strong> {caseInfo.data.description}</p>
                                         <div id="buttonGroup" class="text-center">
-                                            <a href={caseInfo.data.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
-                                            <a href={caseInfo.data.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
+                                            {caseInfo.data.url !== '' && <a href={caseInfo.data.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>}
+                                            {caseInfo.data.urlPDF !== '' && <a href={caseInfo.data.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>}
                                         </div>
                                     </div>
                                 </div>
