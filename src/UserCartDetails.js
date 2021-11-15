@@ -34,13 +34,11 @@ const UserCartDetails = () => {
                                 <div className="card">
                                     <h5 className="card-header">Department: { usercartInfo.data.user.department }</h5>
                                     <div className="card-body">
-                                        <Link to={`/view/user/${usercartInfo.data.user._id}`}>
-                                            <h5 className="card-title">Name: { usercartInfo.data.user.firstName + ' ' +usercartInfo.data.user.lastName}</h5>
-                                        </Link>
+                                        <h5 className="card-title">Name: <Link to={`/view/user/${usercartInfo.data.user._id}`}>{ usercartInfo.data.user.firstName + ' ' +usercartInfo.data.user.lastName}</Link></h5>
                                         <h5 className="card-title">Rank: { usercartInfo.data.user.rank }</h5>
-                                        <h5 className="card-title">Email: { usercartInfo.data.user.email }</h5>
-                                        <h5 className="card-title">Number: { usercartInfo.data.user.phoneNumber }</h5>
-                                        <h5 className="card-title">Station Number: { usercartInfo.data.user.stationPhoneNumber}</h5>
+                                        <h5 className="card-title">Email: <a href={`mailto:${usercartInfo.data.user.email}`} >{ usercartInfo.data.user.email }</a></h5>
+                                        <h5 className="card-title">Number: <a href={`tel:${usercartInfo.data.user.phoneNumber}`}>{ usercartInfo.data.user.phoneNumber }</a></h5>
+                                        <h5 className="card-title">Station Number: <a href={`tel:${usercartInfo.data.user.stationPhoneNumber}`}>{ usercartInfo.data.user.stationPhoneNumber}</a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +50,7 @@ const UserCartDetails = () => {
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-10">
                                 <div className="card">
-                                    <h5 className="card-header">{cartcase.title}</h5>
+                                <Link to={`/view/case/${cartcase._id}`}> <h5 className="card-header">{cartcase.title}</h5> </Link>
                                     <div className="card-body">
                                         <h5 className="card-title"><strong>Case Number:</strong> {cartcase.caseNumber} </h5>
                                         <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>

@@ -35,9 +35,9 @@ const UserDetails = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Name: { userInfo.data.firstName + ' ' + userInfo.data.lastName}</h5>
                                         <h5 className="card-title">Rank: { userInfo.data.rank }</h5>
-                                        <h5 className="card-title">Email: { userInfo.data.email }</h5>
-                                        <h5 className="card-title">Number: { userInfo.data.phoneNumber }</h5>
-                                        <h5 className="card-title">Station Number: { userInfo.data.stationPhoneNumber}</h5>
+                                        <h5 className="card-title">Email: <a href={`mailto:${userInfo.data.email}`} >{ userInfo.data.email }</a></h5>
+                                        <h5 className="card-title">Number: <a href={`tel:${userInfo.data.phoneNumber}`}>{ userInfo.data.phoneNumber }</a></h5>
+                                        <h5 className="card-title">Station Number: <a href={`tel:${userInfo.data.stationPhoneNumber}`}>{ userInfo.data.stationPhoneNumber}</a></h5>
                                     </div>
                                 </div>
                             </div>

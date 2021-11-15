@@ -39,7 +39,7 @@ const CartDetails = () => {
                                                 <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>
                                                 <div id="buttonGroup" class="text-center">
                                                     <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
-                                                    <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
+                                                    {cartcase.urlPDF !== '' && <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>}
                                                 </div>
                                             </div>
                                         </div>
