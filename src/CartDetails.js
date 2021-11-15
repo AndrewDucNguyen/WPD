@@ -1,17 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
+import { Link } from 'react-router-dom';
 import { carturl } from "./constants/global";
 import useFetch from "./useFetch";
 
 
 const CartDetails = () => {
-    const { cartid } = useParams();
-    const { data:cartInfo, error, isPending } = useFetch(`${carturl}/${cartid}`);
+    const { id } = useParams();
+    const { data:cartInfo, error, isPending } = useFetch(`${carturl}/${id}`);
 
     return ( 
         <div className="user-details">
-            <h2 className="pt-4 text-center" >Cart Detail:  </h2>
+            <h2 className="pt-4 text-center" >Cart Detail:</h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -27,7 +28,25 @@ const CartDetails = () => {
             { cartInfo && (
                 <article>
                     {/* <!-- Hero Section --> */}
-                    
+                    {cartInfo.data.cases.map((cartcase) => (
+                            <div className="container-fluid mx-auto my-4" key={cartcase._id}>
+                                <div className="row justify-content-center">
+                                    <div className="col-12 col-lg-10">
+                                        <div className="card">
+                                            <Link to={`/view/case/${cartcase._id}`}> <h5 className="card-header">{cartcase.title}</h5> </Link>
+                                            <div className="card-body">
+                                                <h5 className="card-title"><strong>Case Number:</strong> {cartcase.caseNumber} </h5>
+                                                <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>
+                                                <div id="buttonGroup" class="text-center">
+                                                    <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
+                                                    <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    ))}
                 </article>
             )}
         </div>

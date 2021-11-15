@@ -11,7 +11,7 @@ const UserDetails = () => {
 
     return ( 
         <div className="user-details">
-            <h2 className="text-center pt-4" >User Details - { id } </h2>
+            <h2 className="text-center pt-4" >User's Detail:</h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -33,8 +33,7 @@ const UserDetails = () => {
                                 <div className="card">
                                     <h5 className="card-header">Department: { userInfo.data.department }</h5>
                                     <div className="card-body">
-                                        <h5 className="card-title">First: { userInfo.data.firstName }</h5>
-                                        <h5 className="card-title">Last: { userInfo.data.lastName }</h5>
+                                        <h5 className="card-title">Name: { userInfo.data.firstName + ' ' +userInfo.data.lastName}</h5>
                                         <h5 className="card-title">Rank: { userInfo.data.rank }</h5>
                                         <h5 className="card-title">Email: { userInfo.data.email }</h5>
                                         <h5 className="card-title">Number: { userInfo.data.phoneNumber }</h5>

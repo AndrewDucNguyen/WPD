@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
+import { Link } from 'react-router-dom';
 import { carturl } from "./constants/global";
 import useFetch from "./useFetch";
 
@@ -33,8 +34,9 @@ const UserCartDetails = () => {
                                 <div className="card">
                                     <h5 className="card-header">Department: { usercartInfo.data.user.department }</h5>
                                     <div className="card-body">
-                                        <h5 className="card-title">First: { usercartInfo.data.user.firstName }</h5>
-                                        <h5 className="card-title">Last: { usercartInfo.data.user.lastName }</h5>
+                                        <Link to={`/view/user/${usercartInfo.data.user._id}`}>
+                                            <h5 className="card-title">Name: { usercartInfo.data.user.firstName + ' ' +usercartInfo.data.user.lastName}</h5>
+                                        </Link>
                                         <h5 className="card-title">Rank: { usercartInfo.data.user.rank }</h5>
                                         <h5 className="card-title">Email: { usercartInfo.data.user.email }</h5>
                                         <h5 className="card-title">Number: { usercartInfo.data.user.phoneNumber }</h5>
@@ -45,26 +47,25 @@ const UserCartDetails = () => {
                         </div>
                     </div>
                     {/* Case Information */}
-                    {/* {usercartInfo.map(cart) => {
-
-                    }} */}
-                    {/* <div className="container-fluid mx-auto my-4">
+                    {usercartInfo.data.cart.cases.map((cartcase) => (
+                        <div className="container-fluid mx-auto my-4">
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-10">
                                 <div className="card">
-                                    <h5 className="card-header">{usercaseInfo.data.case.title}</h5>
+                                    <h5 className="card-header">{cartcase.title}</h5>
                                     <div className="card-body">
-                                        <h5 className="card-title"><strong>Case Number:</strong> {usercaseInfo.data.case.caseNumber} </h5>
-                                        <p className="card-text"><strong>Description:</strong> {usercaseInfo.data.case.description}</p>
+                                        <h5 className="card-title"><strong>Case Number:</strong> {cartcase.caseNumber} </h5>
+                                        <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>
                                         <div id="buttonGroup" class="text-center">
-                                            <a href={usercaseInfo.data.case.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
-                                            <a href={usercaseInfo.data.case.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
+                                            <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
+                                            <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
+                    ))}
                 </article>
             )}
         </div>
