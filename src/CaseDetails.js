@@ -32,7 +32,6 @@ const CaseDetails = () => {
                                 <div className="card">
                                     <h5 className="card-header">Title: {caseInfo.data.title}</h5>
                                     <div className="card-body">
-                                        <h5 className="card-title"><strong>Case Number:</strong> {caseInfo.data.caseNumber} </h5>
                                         <p className="card-text"><strong>Description:</strong> {caseInfo.data.description}</p>
                                         <div id="buttonGroup" class="text-center">
                                             {caseInfo.data.url !== '' && <a href={caseInfo.data.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>}

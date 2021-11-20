@@ -13,6 +13,7 @@ const CartDetails = () => {
     return ( 
         <div className="user-details">
             <h2 className="pt-4 text-center" >Cart Detail:</h2>
+            <h2 className="text-center"><strong>Case Number:</strong> {cartInfo.data.caseNumber}</h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -35,7 +36,6 @@ const CartDetails = () => {
                                         <div className="card">
                                             <Link to={`/view/case/${cartcase._id}`}> <h5 className="card-header">{cartcase.title}</h5> </Link>
                                             <div className="card-body">
-                                                <h5 className="card-title"><strong>Case Number:</strong> {cartcase.caseNumber} </h5>
                                                 <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>
                                                 <div id="buttonGroup" class="text-center">
                                                     {cartcase.url !== '' && <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>}

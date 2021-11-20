@@ -1,8 +1,6 @@
 import Navbar from './Navbar';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import Case from './Case';
-// import User from './User';
 import CaseDetails from './CaseDetails';
 import UserDetails from './UserDetails';
 import UserCaseDetails from './UserCaseDetails';
@@ -20,15 +18,9 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            {/* <Route path="/cases">
-              <Case />
-            </Route> */}
             <Route path="/view/case/:id">
               <CaseDetails />
             </Route>
-            {/* <Route path="/users">
-              <User />
-            </Route> */}
             <Route path="/view/user/:id">
               <UserDetails />
             </Route>
