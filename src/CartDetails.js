@@ -12,7 +12,6 @@ const CartDetails = () => {
 
     return ( 
         <div className="user-details">
-            <h2 className="pt-4 text-center" >Cart Detail:</h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -28,7 +27,7 @@ const CartDetails = () => {
             { cartInfo && (
                 <article>
                     {/* <!-- Hero Section --> */}
-                    <h2 className="text-center"><strong>Case Number:</strong> {cartInfo.data.caseNumber}</h2>
+                    <h2 className="pt-4 text-center"><strong>Case Number:</strong> {cartInfo.data.caseNumber}</h2>
                     {cartInfo.data.cases.map((cartcase) => (
                             <div className="container-fluid mx-auto my-4" key={cartcase._id}>
                                 <div className="row justify-content-center">

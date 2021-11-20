@@ -12,7 +12,6 @@ const UserCartDetails = () => {
 
     return ( 
         <div className="user-details">
-            <h2 className="pt-4 text-center" >User & Cart Detail:  </h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -28,7 +27,7 @@ const UserCartDetails = () => {
             { usercartInfo && (
                 <article>
                     {/* <!-- Hero Section --> */}
-                    <h2 className="text-center"><strong>Case Number:</strong> {usercartInfo.data.cart.caseNumber}</h2>
+                    <h2 className="text-center pt-4"><strong>Case Number:</strong> {usercartInfo.data.cart.caseNumber}</h2>
                     <div className="container-fluid mx-auto my-4">
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-6 text-center">
