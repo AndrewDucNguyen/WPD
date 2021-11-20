@@ -11,7 +11,6 @@ const UserCaseDetails = () => {
 
     return ( 
         <div className="user-details">
-            <h2 className="pt-4 text-center" >User & Case Detail:  </h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
