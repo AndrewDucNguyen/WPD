@@ -1,3 +1,4 @@
+// Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
@@ -6,14 +7,17 @@ import useFetch from "./useFetch";
 
 
 const CaseDetails = () => {
+    // Destruct the id from url
     const { id } = useParams();
+    // Fetch the case information using id and global url
     const { data:caseInfo, error, isPending } = useFetch(`${url}cases/${id}`);
 
     return ( 
         <div className="case-details">
+            {/* If the data is still loading, it will display this */}
             { isPending && (
                 <Container> 
-                    <Row className="justify-content-center align-items-center">
+                    <Row className="justify-content-center align-items-center pt-4">
                         <Col xs="2" sm="1" className="">
                         <Spinner animation="border" role="status">
                             <span className="visually-hidden">Loading...</span>
@@ -22,7 +26,9 @@ const CaseDetails = () => {
                     </Row>
                 </Container>
             )}
+            {/* If the data fails then it will display the error */}
             { error && <div> { error } </div> }
+            {/* If the data is obtained and successful, it will display the information */}
             { caseInfo && (
                 <article>
                     <h2 className="text-center pt-4">Category - { caseInfo.data.category.title }</h2>

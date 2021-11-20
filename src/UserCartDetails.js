@@ -1,3 +1,4 @@
+// Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router";
@@ -7,14 +8,17 @@ import useFetch from "./useFetch";
 
 
 const UserCartDetails = () => {
+    // Destruct id from the params
     const { cartid, userid } = useParams();
+    // Fetching data from the cartid and userid in the URL with the global carturl
     const { data:usercartInfo, error, isPending } = useFetch(`${carturl}/${cartid}/${userid}`);
 
     return ( 
         <div className="user-details">
+            {/* If the data is still loading, it will display this */}
             { isPending && (
                 <Container className=""> 
-                    <Row className="justify-content-center align-items-center">
+                    <Row className="justify-content-center align-items-center pt-4">
                         <Col xs="2" sm="1" className="">
                         <Spinner animation="border" role="status">
                             <span className="visually-hidden">Loading...</span>
@@ -23,7 +27,10 @@ const UserCartDetails = () => {
                     </Row>
                 </Container>
             )}
+            {/* If the data fails then it will display the error */}
             { error && <div> { error } </div> }
+            {/* If the data is obtained and successful, it will display the information */}
+            {/* User information */}
             { usercartInfo && (
                 <article>
                     {/* <!-- Hero Section --> */}

@@ -1,9 +1,10 @@
+// Imports
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const Home = () => {
-   
     return (
+        // Basic information for home page
         <div className="home">
             <div className="container text-center py-4">
                 <h2>Welcome to the Wichita Police Department</h2>

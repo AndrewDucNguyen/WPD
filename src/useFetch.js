@@ -16,11 +16,13 @@ const useFetch = (url) => {
             }
             return res.json();
         })
+        // This has the data and sets data state
         .then(data => {
             setData(data);
             setIsPending(false);
             setError(null);
         })
+        // Display the error information
         .catch((err) => {
             if (err.name === 'AbortError'){
                 console.log('Fetch aborted');
