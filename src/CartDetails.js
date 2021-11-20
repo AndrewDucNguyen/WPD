@@ -13,7 +13,6 @@ const CartDetails = () => {
     return ( 
         <div className="user-details">
             <h2 className="pt-4 text-center" >Cart Detail:</h2>
-            <h2 className="text-center"><strong>Case Number:</strong> {cartInfo.data.caseNumber}</h2>
             { isPending && (
                 <Container className=""> 
                     <Row className="justify-content-center align-items-center">
@@ -29,6 +28,7 @@ const CartDetails = () => {
             { cartInfo && (
                 <article>
                     {/* <!-- Hero Section --> */}
+                    <h2 className="text-center"><strong>Case Number:</strong> {cartInfo.data.caseNumber}</h2>
                     {cartInfo.data.cases.map((cartcase) => (
                             <div className="container-fluid mx-auto my-4" key={cartcase._id}>
                                 <div className="row justify-content-center">
@@ -37,7 +37,7 @@ const CartDetails = () => {
                                             <Link to={`/view/case/${cartcase._id}`}> <h5 className="card-header">{cartcase.title}</h5> </Link>
                                             <div className="card-body">
                                                 <p className="card-text"><strong>Description:</strong> {cartcase.description}</p>
-                                                <div id="buttonGroup" class="text-center">
+                                                <div id="buttonGroup" className="text-center">
                                                     {cartcase.url !== '' && <a href={cartcase.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>}
                                                     {cartcase.urlPDF !== '' && <a href={cartcase.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>}
                                                 </div>

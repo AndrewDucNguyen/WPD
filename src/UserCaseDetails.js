@@ -53,7 +53,7 @@ const UserCaseDetails = () => {
                                     <div className="card-body">
                                         <h5 className="card-title"><strong>Case Number:</strong> {usercaseInfo.data.case.caseNumber} </h5>
                                         <p className="card-text"><strong>Description:</strong> {usercaseInfo.data.case.description}</p>
-                                        <div id="buttonGroup" class="text-center">
+                                        <div id="buttonGroup" className="text-center">
                                             <a href={usercaseInfo.data.case.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>
                                             <a href={usercaseInfo.data.case.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>
                                         </div>

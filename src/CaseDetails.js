@@ -33,7 +33,7 @@ const CaseDetails = () => {
                                     <h5 className="card-header">Title: {caseInfo.data.title}</h5>
                                     <div className="card-body">
                                         <p className="card-text"><strong>Description:</strong> {caseInfo.data.description}</p>
-                                        <div id="buttonGroup" class="text-center">
+                                        <div id="buttonGroup" className="text-center">
                                             {caseInfo.data.url !== '' && <a href={caseInfo.data.url} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful URL</a>}
                                             {caseInfo.data.urlPDF !== '' && <a href={caseInfo.data.urlPDF} className="btn btn-primary mx-1" rel="noreferrer" target="_blank">Useful PDF</a>}
                                         </div>
