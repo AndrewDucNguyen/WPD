@@ -7,7 +7,9 @@ import UserDetails from './UserDetails';
 import UserCaseDetails from './UserCaseDetails';
 import CartDetails from './CartDetails';
 import UserCartDetails from './UserCartDetails';
+import GoogleTranslate from './GoogleTranslate';
 import NotFound  from './NotFound';
+
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
+          {/* Leaving Google Translate at bottom to be on every page */}
+          <GoogleTranslate />
         </div>
       </div>
     </Router>
