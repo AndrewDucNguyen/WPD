@@ -36,7 +36,7 @@ const CaseDetails = () => {
                         <div className="row justify-content-center">
                             <div className="col-12 col-lg-10">
                                 <div className="card">
-                                    <h5 className="card-header">Title: {caseInfo.data.title}</h5>
+                                    <h5 className="card-header">{caseInfo.data.title}</h5>
                                     <div className="card-body">
                                         <p className="card-text"><strong>Description:</strong> {caseInfo.data.description}</p>
                                         <div id="buttonGroup" className="text-center">
